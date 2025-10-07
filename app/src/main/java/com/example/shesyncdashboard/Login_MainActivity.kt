@@ -1,5 +1,6 @@
-package com.example.experiment3final
+package com.example.shesyncdashboard
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -11,18 +12,18 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.util.concurrent.TimeUnit
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    // Declare variables here
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var cycleLengthEditText: EditText
-    private lateinit var createAccountButton: Button
+    private lateinit var loginButton: Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)  // Your renamed layout file
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -30,18 +31,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Initialize views from the updated layout
         nameEditText = findViewById(R.id.nameEditText)
         emailEditText = findViewById(R.id.emailEditText)
         cycleLengthEditText = findViewById(R.id.cycleLengthEditText)
-        createAccountButton = findViewById(R.id.createAccountButton)
+        loginButton = findViewById(R.id.loginButton)  // Rename appropriately
 
-        createAccountButton.setOnClickListener {
+        loginButton.setOnClickListener {
             val name = nameEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
             val cycleLengthStr = cycleLengthEditText.text.toString().trim()
-
             var hasError = false
+
             if (name.isBlank()) {
                 nameEditText.error = "Name is required"
                 hasError = true
@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (!hasError) {
-                // Save user data
                 val sharedPreferences = getSharedPreferences("PeriodTrackerPrefs", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 val averageCycleLength = cycleLengthStr.toInt()
@@ -65,21 +64,20 @@ class MainActivity : AppCompatActivity() {
                 editor.putLong("CYCLE_START_DATE", cycleStartDateMillis)
                 editor.apply()
 
-                // Calculate current cycle day
                 val nowMillis = System.currentTimeMillis()
                 val diffMillis = nowMillis - cycleStartDateMillis
                 val daysPassed = TimeUnit.MILLISECONDS.toDays(diffMillis)
                 val currentCycleDay = (daysPassed % averageCycleLength) + 1
 
-                // Create an Intent to start DashboardActivity
-                val intent = Intent(this, DashboardActivity::class.java).apply {
+                // Navigate to new MainActivity hosting fragments
+                val intent = Intent(this, MainActivity::class.java).apply {
                     putExtra("USER_NAME", name)
                     putExtra("USER_EMAIL", email)
                     putExtra("CYCLE_DAY", currentCycleDay)
-                    // Pass the average cycle length to the dashboard
                     putExtra("CYCLE_LENGTH", averageCycleLength)
                 }
                 startActivity(intent)
+                finish()  // Prevent user going back to login
             }
         }
     }

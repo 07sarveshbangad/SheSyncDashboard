@@ -9,4 +9,8 @@
     <color name="light_text_gray">#A1A1A1</color>
     <color name="border_light_gray">#E0E0E0</color>
     <color name="border_soft_gray">#E0E0E0</color>
+    <color name="fertile_yellow">#FFF9C4</color>
+    <color name="ovulation_orange">#FFECB3</color>
+    <color name="period_pink">#FFD4E5</color>
+
 </resources>

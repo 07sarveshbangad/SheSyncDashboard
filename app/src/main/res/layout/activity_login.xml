@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_off_white"
-    tools:context=".MainActivity">
+    tools:context=".Login_MainActivity">
 
     <ImageView
         android:id="@+id/logoImageView"
@@ -14,9 +15,9 @@
         android:layout_height="80dp"
         android:layout_marginTop="35dp"
         android:src="@drawable/female_avatar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/titleTextView"
@@ -27,9 +28,9 @@
         android:textColor="@color/dark_text_charcoal"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/nameEditText"
@@ -45,9 +46,9 @@
         android:paddingEnd="16dp"
         android:textColor="@color/dark_text_charcoal"
         android:textColorHint="@color/light_text_gray"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/emailEditText"
@@ -61,9 +62,9 @@
         android:paddingEnd="16dp"
         android:textColor="@color/dark_text_charcoal"
         android:textColorHint="@color/light_text_gray"
-        app:layout_constraintEnd_toEndOf="@id/nameEditText"
+        app:layout_constraintTop_toBottomOf="@id/nameEditText"
         app:layout_constraintStart_toStartOf="@id/nameEditText"
-        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+        app:layout_constraintEnd_toEndOf="@id/nameEditText"/>
 
     <TextView
         android:id="@+id/cycleLengthTitle"
@@ -72,8 +73,8 @@
         android:layout_marginTop="24dp"
         android:text="Average Cycle Length (days)"
         android:textColor="@color/dark_text_charcoal"
-        app:layout_constraintStart_toStartOf="@id/emailEditText"
-        app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        app:layout_constraintStart_toStartOf="@id/emailEditText"/>
 
     <EditText
         android:id="@+id/cycleLengthEditText"
@@ -87,12 +88,12 @@
         android:paddingEnd="16dp"
         android:textColor="@color/dark_text_charcoal"
         android:textColorHint="@color/light_text_gray"
-        app:layout_constraintEnd_toEndOf="@id/emailEditText"
+        app:layout_constraintTop_toBottomOf="@id/cycleLengthTitle"
         app:layout_constraintStart_toStartOf="@id/emailEditText"
-        app:layout_constraintTop_toBottomOf="@id/cycleLengthTitle" />
+        app:layout_constraintEnd_toEndOf="@id/emailEditText"/>
 
     <Button
-        android:id="@+id/createAccountButton"
+        android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="108dp"
@@ -105,8 +106,8 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/cycleLengthEditText"
         app:layout_constraintStart_toStartOf="@id/cycleLengthEditText"
-        app:layout_constraintTop_toBottomOf="@id/cycleLengthEditText" />
+        app:layout_constraintEnd_toEndOf="@id/cycleLengthEditText"
+        app:layout_constraintTop_toBottomOf="@id/cycleLengthEditText"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

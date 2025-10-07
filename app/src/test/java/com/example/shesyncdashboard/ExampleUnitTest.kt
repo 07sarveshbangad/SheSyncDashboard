@@ -1,4 +1,4 @@
-package com.example.experiment3final
+package com.example.shesyncdashboard
 
 import org.junit.Test
 

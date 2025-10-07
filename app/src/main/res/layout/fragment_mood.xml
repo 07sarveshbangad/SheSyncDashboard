@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg_mood_gradient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How is your mood today?"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_magenta"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"/>
+
+    <GridLayout
+        android:id="@+id/moodContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:alignmentMode="alignMargins"
+        android:rowCount="2"
+        android:useDefaultMargins="true"
+        android:gravity="center"/>
+
+</LinearLayout>
